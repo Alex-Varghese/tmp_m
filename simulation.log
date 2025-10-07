@@ -1,0 +1,3121 @@
+# vsim -vopt work.top -voptargs="+acc=npr" -assertdebug -l simulation.log -coverage -c -do "coverage save -onexit -assert -directive -cvg -codeAll coverage.ucdb; run -all; exit" 
+# Start time: 10:35:15 on Oct 07,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# //  Questa Sim
+# //  Version 10.6c linux Jul 25 2017
+# //
+# //  Copyright 1991-2017 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.asyn_fifo_interfs(fast)
+# Loading mtiUvm.uvm_pkg
+# Loading work.asyn_fifo_pkg(fast)
+# Loading work.top_sv_unit(fast)
+# Loading work.top(fast)
+# Loading work.asyn_fifo_interfs(fast)
+# Loading work.asyn_fifo_assertions(fast)
+# Loading work.FIFO(fast)
+# Loading work.two_ff_sync(fast)
+# Loading work.FIFO_memory(fast)
+# Loading work.rptr_empty(fast)
+# Loading work.wptr_full(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/linux/uvm_dpi.so
+# coverage save -onexit -assert -directive -cvg -codeAll coverage.ucdb
+#  run -all
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test asyn_fifo_base_test...
+# -------------------------------------------------------------------
+# Name                       Type                         Size  Value
+# -------------------------------------------------------------------
+# uvm_test_top               asyn_fifo_base_test          -     @471 
+#   env                      asyn_fifo_env                -     @478 
+#     rd_agnt                asyn_fifo_read_agent         -     @492 
+#       drv                  asyn_fifo_read_driver        -     @842 
+#         rsp_port           uvm_analysis_port            -     @857 
+#         seq_item_port      uvm_seq_item_pull_port       -     @849 
+#       mon                  asyn_fifo_read_monitor       -     @865 
+#         read_item_port     uvm_analysis_port            -     @880 
+#       seqr                 asyn_fifo_read_sequencer     -     @733 
+#         rsp_export         uvm_analysis_export          -     @740 
+#         seq_item_export    uvm_seq_item_pull_imp        -     @834 
+#         arbitration_queue  array                        0     -    
+#         lock_queue         array                        0     -    
+#         num_last_reqs      integral                     32    'd1  
+#         num_last_rsps      integral                     32    'd1  
+#     scb                    asyn_fifo_scoreboard         -     @499 
+#       tlm_read_fifo        uvm_tlm_analysis_fifo #(T)   -     @553 
+#         analysis_export    uvm_analysis_imp             -     @592 
+#         get_ap             uvm_analysis_port            -     @584 
+#         get_peek_export    uvm_get_peek_imp             -     @568 
+#         put_ap             uvm_analysis_port            -     @576 
+#         put_export         uvm_put_imp                  -     @560 
+#       tlm_write_fifo       uvm_tlm_analysis_fifo #(T)   -     @506 
+#         analysis_export    uvm_analysis_imp             -     @545 
+#         get_ap             uvm_analysis_port            -     @537 
+#         get_peek_export    uvm_get_peek_imp             -     @521 
+#         put_ap             uvm_analysis_port            -     @529 
+#         put_export         uvm_put_imp                  -     @513 
+#     subcr                  asyn_fifo_subscriber         -     @600 
+#       aport_read           uvm_analysis_imp_read_cg     -     @615 
+#       aport_write          uvm_analysis_imp_write_cg    -     @607 
+#     vir_seqr               asyn_fifo_virtual_sequencer  -     @623 
+#       rsp_export           uvm_analysis_export          -     @630 
+#       seq_item_export      uvm_seq_item_pull_imp        -     @724 
+#       arbitration_queue    array                        0     -    
+#       lock_queue           array                        0     -    
+#       num_last_reqs        integral                     32    'd1  
+#       num_last_rsps        integral                     32    'd1  
+#     wr_agnt                asyn_fifo_write_agent        -     @485 
+#       drv                  asyn_fifo_write_driver       -     @1010
+#         rsp_port           uvm_analysis_port            -     @1025
+#         seq_item_port      uvm_seq_item_pull_port       -     @1017
+#       mon                  asyn_fifo_write_monitor      -     @1033
+#         write_item_port    uvm_analysis_port            -     @1048
+#       seqr                 asyn_fifo_write_sequencer    -     @901 
+#         rsp_export         uvm_analysis_export          -     @908 
+#         seq_item_export    uvm_seq_item_pull_imp        -     @1002
+#         arbitration_queue  array                        0     -    
+#         lock_queue         array                        0     -    
+#         num_last_reqs      integral                     32    'd1  
+#         num_last_rsps      integral                     32    'd1  
+# -------------------------------------------------------------------
+# wptr=x,rptr=x
+# Write Driver @ 5
+# wrst = 1 | wdata = 49 | winc = 0
+# wptr=x,rptr=x
+# wptr=x,rptr=x
+# Write Monitor @ 15
+# wrst = 1
+# winc = 0
+# wdata = 49
+# wfull = x
+# ASSERTION FAIL: wfull is not latched when winc = 0
+# wptr=x,rptr=x
+# wptr=x,rptr=x
+# ASSERTION FAIL: wfull is not latched when winc = 0
+# wptr=x,rptr=x
+# Read Monitor @ 30
+# rrst = 1
+# rinc = 1
+# rempty = x
+# rdata = x
+# 
+# 
+# Scoreboard @30 ------------------------------------
+# TEST FAILED @ 30
+# PASS count = 0 | FAIL count = 1
+# 
+# 
+############################################################################################################################
+# Write Driver @ 30
+# wrst = 0 | wdata = 69 | winc = 1
+# wptr=0,rptr=0
+# Write Monitor @ 35
+# wrst = 0
+# winc = 1
+# wdata = 69
+# wfull = 0
+# ASSERTION PASS: wfull is 0 when wrst = 0
+# wptr=0,rptr=0
+# wptr=0,rptr=0
+# ASSERTION PASS: wfull is 0 when wrst = 0
+# wptr=0,rptr=0
+# Read Monitor @ 50
+# rrst = 0
+# rinc = 1
+# rempty = 1
+# rdata = 69
+# 
+# 
+# Scoreboard @50 ------------------------------------
+# Write Reset is applied
+# Write Reset TEST PASSED @ 50
+# Read Reset is applied
+# Read Reset TEST FAILED @ 50
+# PASS count = 1 | FAIL count = 2
+# 
+# 
+############################################################################################################################
+# Write Driver @ 50
+# wrst = 1 | wdata = 14 | winc = 0
+# ASSERTION FAIL: rempty != 1 or rdata != 0 when rrst = 0
+# ASSERTION PASS: No signals are unknown
+# wptr=0,rptr=0
+# Write Monitor @ 55
+# wrst = 1
+# winc = 0
+# wdata = 14
+# wfull = 0
+# ASSERTION PASS: wfull is latched when winc = 0
+# wptr=0,rptr=0
+# wptr=0,rptr=0
+# ASSERTION PASS: wfull is latched when winc = 0
+# wptr=0,rptr=0
+# Read Monitor @ 70
+# rrst = 1
+# rinc = 0
+# rempty = 1
+# rdata = 69
+# 
+# 
+# Scoreboard @70 ------------------------------------
+# TEST FAILED @ 70
+# PASS count = 1 | FAIL count = 3
+# 
+# 
+############################################################################################################################
+# Write Driver @ 70
+# wrst = 1 | wdata = 71 | winc = 1
+# ASSERTION PASS: rdata is latched when rinc = 0
+# ASSERTION PASS: No signals are unknown
+# wptr=0,rptr=0
+# Write Monitor @ 75
+# wrst = 1
+# winc = 1
+# wdata = 71
+# wfull = 0
+# wptr=1,rptr=0
+# wptr=1,rptr=0
+# wptr=2,rptr=0
+# Read Monitor @ 90
+# rrst = 1
+# rinc = 1
+# rempty = 1
+# rdata = 71
+# 
+# 
+# Scoreboard @90 ------------------------------------
+# TEST PASSED @ 90
+# PASS count = 2 | FAIL count = 3
+# 
+# 
+############################################################################################################################
+# Write Driver @ 90
+# wrst = 0 | wdata = 52 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=0,rptr=0
+# Write Monitor @ 95
+# wrst = 0
+# winc = 1
+# wdata = 52
+# wfull = 0
+# ASSERTION PASS: wfull is 0 when wrst = 0
+# wptr=0,rptr=0
+# wptr=0,rptr=0
+# ASSERTION PASS: wfull is 0 when wrst = 0
+# wptr=0,rptr=0
+# Read Monitor @ 110
+# rrst = 0
+# rinc = 1
+# rempty = 1
+# rdata = 52
+# 
+# 
+# Scoreboard @110 ------------------------------------
+# Write Reset is applied
+# Write Reset TEST PASSED @ 110
+# Read Reset is applied
+# Read Reset TEST FAILED @ 110
+# PASS count = 3 | FAIL count = 4
+# 
+# 
+############################################################################################################################
+# Write Driver @ 110
+# wrst = 1 | wdata = 183 | winc = 1
+# ASSERTION FAIL: rempty != 1 or rdata != 0 when rrst = 0
+# ASSERTION PASS: No signals are unknown
+# wptr=0,rptr=0
+# Write Monitor @ 115
+# wrst = 1
+# winc = 1
+# wdata = 183
+# wfull = 0
+# wptr=1,rptr=0
+# wptr=1,rptr=0
+# wptr=2,rptr=0
+# Read Monitor @ 130
+# rrst = 0
+# rinc = 1
+# rempty = 1
+# rdata = 183
+# 
+# 
+# Scoreboard @130 ------------------------------------
+# Write Reset is applied
+# Write Reset TEST PASSED @ 130
+# Read Reset is applied
+# Read Reset TEST FAILED @ 130
+# PASS count = 4 | FAIL count = 5
+# 
+# 
+# ASSERTION FAIL: rempty != 1 or rdata != 0 when rrst = 0
+# ASSERTION PASS: No signals are unknown
+# wptr=2,rptr=0
+# Write Driver @ 135
+# wrst = 1 | wdata = 4 | winc = 1
+# Write Monitor @ 135
+# wrst = 1
+# winc = 1
+# wdata = 4
+# wfull = 0
+# wptr=3,rptr=0
+# wptr=3,rptr=0
+# wptr=4,rptr=0
+# Read Monitor @ 150
+# rrst = 1
+# rinc = 1
+# rempty = 1
+# rdata = 183
+# 
+# 
+# Scoreboard @150 ------------------------------------
+# TEST FAILED @ 150
+# PASS count = 4 | FAIL count = 6
+# 
+# 
+# ASSERTION PASS: No signals are unknown
+# wptr=4,rptr=0
+# Write Monitor @ 155
+# wrst = 1
+# winc = 1
+# wdata = 4
+# wfull = 0
+# wptr=5,rptr=0
+# wptr=5,rptr=0
+# wptr=6,rptr=0
+# Read Monitor @ 170
+# rrst = 1
+# rinc = 1
+# rempty = 1
+# rdata = 183
+# 
+# 
+# Scoreboard @170 ------------------------------------
+# TEST FAILED @ 170
+# PASS count = 4 | FAIL count = 7
+# 
+# 
+# ASSERTION PASS: No signals are unknown
+# wptr=6,rptr=0
+# Write Monitor @ 175
+# wrst = 1
+# winc = 1
+# wdata = 4
+# wfull = 0
+# wptr=7,rptr=0
+# wptr=7,rptr=0
+# wptr=8,rptr=0
+# Read Monitor @ 190
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 183
+# 
+# 
+# Scoreboard @190 ------------------------------------
+# TEST FAILED @ 190
+# PASS count = 4 | FAIL count = 8
+# 
+# 
+# ASSERTION PASS: No signals are unknown
+# wptr=8,rptr=0
+# Write Monitor @ 195
+# wrst = 1
+# winc = 1
+# wdata = 4
+# wfull = 0
+# wptr=9,rptr=0
+# wptr=9,rptr=0
+# wptr=10,rptr=0
+# Read Monitor @ 210
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 183
+# 
+# 
+# Scoreboard @210 ------------------------------------
+# TEST FAILED @ 210
+# PASS count = 4 | FAIL count = 9
+# 
+# 
+# ASSERTION PASS: No signals are unknown
+# wptr=10,rptr=1
+# Write Monitor @ 215
+# wrst = 1
+# winc = 1
+# wdata = 4
+# wfull = 0
+# wptr=11,rptr=1
+# wptr=11,rptr=1
+# wptr=12,rptr=1
+# Read Monitor @ 230
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 183
+# 
+# 
+# Scoreboard @230 ------------------------------------
+# TEST FAILED @ 230
+# PASS count = 4 | FAIL count = 10
+# 
+# 
+# ASSERTION PASS: No signals are unknown
+# wptr=12,rptr=2
+# Write Monitor @ 235
+# wrst = 1
+# winc = 1
+# wdata = 4
+# wfull = 0
+# wptr=13,rptr=2
+# wptr=13,rptr=2
+# wptr=14,rptr=2
+# Read Monitor @ 250
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 4
+# 
+# 
+# Scoreboard @250 ------------------------------------
+# TEST PASSED @ 250
+# PASS count = 5 | FAIL count = 10
+# 
+# 
+# ASSERTION PASS: No signals are unknown
+# wptr=14,rptr=3
+# Write Monitor @ 255
+# wrst = 1
+# winc = 1
+# wdata = 4
+# wfull = 0
+# wptr=15,rptr=3
+# wptr=15,rptr=3
+############################################################################################################################
+# wptr=0,rptr=3
+# Write Driver @ 270
+# wrst = 1 | wdata = 151 | winc = 1
+# Read Monitor @ 270
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 4
+# 
+# 
+# Scoreboard @270 ------------------------------------
+# TEST PASSED @ 270
+# PASS count = 6 | FAIL count = 10
+# 
+# 
+# ASSERTION PASS: No signals are unknown
+# wptr=0,rptr=4
+# Write Monitor @ 275
+# wrst = 1
+# winc = 1
+# wdata = 151
+# wfull = 0
+# wptr=1,rptr=4
+# wptr=1,rptr=4
+# wptr=2,rptr=4
+# Read Monitor @ 290
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 4
+# 
+# 
+# Scoreboard @290 ------------------------------------
+# TEST FAILED @ 290
+# PASS count = 6 | FAIL count = 11
+# 
+# 
+# Write Driver @ 290
+# wrst = 1 | wdata = 89 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=2,rptr=5
+# Write Monitor @ 295
+# wrst = 1
+# winc = 1
+# wdata = 89
+# wfull = 0
+# wptr=3,rptr=5
+# wptr=3,rptr=5
+# wptr=4,rptr=5
+# Read Monitor @ 310
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 4
+# 
+# 
+# Scoreboard @310 ------------------------------------
+# TEST FAILED @ 310
+# PASS count = 6 | FAIL count = 12
+# 
+# 
+# Write Driver @ 310
+# wrst = 1 | wdata = 63 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=4,rptr=6
+# Write Monitor @ 315
+# wrst = 1
+# winc = 1
+# wdata = 63
+# wfull = 0
+# wptr=4,rptr=6
+# wptr=4,rptr=6
+# wptr=5,rptr=6
+# Read Monitor @ 330
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 4
+# 
+# 
+# Scoreboard @330 ------------------------------------
+# TEST FAILED @ 330
+# PASS count = 6 | FAIL count = 13
+# 
+# 
+# Write Driver @ 330
+# wrst = 1 | wdata = 180 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=5,rptr=7
+# Write Monitor @ 335
+# wrst = 1
+# winc = 1
+# wdata = 180
+# wfull = 0
+# wptr=5,rptr=7
+# wptr=5,rptr=7
+# wptr=6,rptr=7
+# Read Monitor @ 350
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 4
+# 
+# 
+# Scoreboard @350 ------------------------------------
+# TEST FAILED @ 350
+# PASS count = 6 | FAIL count = 14
+# 
+# 
+# Write Driver @ 350
+# wrst = 1 | wdata = 107 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=6,rptr=8
+# Write Monitor @ 355
+# wrst = 1
+# winc = 1
+# wdata = 107
+# wfull = 0
+# wptr=6,rptr=8
+# wptr=6,rptr=8
+# wptr=7,rptr=8
+# Read Monitor @ 370
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 4
+# 
+# 
+# Scoreboard @370 ------------------------------------
+# TEST FAILED @ 370
+# PASS count = 6 | FAIL count = 15
+# 
+# 
+# Write Driver @ 370
+# wrst = 1 | wdata = 8 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=7,rptr=9
+# Write Monitor @ 375
+# wrst = 1
+# winc = 1
+# wdata = 8
+# wfull = 0
+# wptr=7,rptr=9
+# wptr=7,rptr=9
+# wptr=8,rptr=9
+# Read Monitor @ 390
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 4
+# 
+# 
+# Scoreboard @390 ------------------------------------
+# TEST FAILED @ 390
+# PASS count = 6 | FAIL count = 16
+# 
+# 
+# Write Driver @ 390
+# wrst = 1 | wdata = 191 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=8,rptr=10
+# Write Monitor @ 395
+# wrst = 1
+# winc = 1
+# wdata = 191
+# wfull = 0
+# wptr=8,rptr=10
+# wptr=8,rptr=10
+# wptr=9,rptr=10
+# Read Monitor @ 410
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 4
+# 
+# 
+# Scoreboard @410 ------------------------------------
+# TEST FAILED @ 410
+# PASS count = 6 | FAIL count = 17
+# 
+# 
+# Write Driver @ 410
+# wrst = 1 | wdata = 201 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=9,rptr=11
+# Write Monitor @ 415
+# wrst = 1
+# winc = 1
+# wdata = 201
+# wfull = 0
+# wptr=9,rptr=11
+# wptr=9,rptr=11
+# wptr=10,rptr=11
+# Read Monitor @ 430
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 4
+# 
+# 
+# Scoreboard @430 ------------------------------------
+# TEST FAILED @ 430
+# PASS count = 6 | FAIL count = 18
+# 
+# 
+# Write Driver @ 430
+# wrst = 1 | wdata = 179 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=10,rptr=12
+# Write Monitor @ 435
+# wrst = 1
+# winc = 1
+# wdata = 179
+# wfull = 0
+# wptr=10,rptr=12
+# wptr=10,rptr=12
+# wptr=11,rptr=12
+# Read Monitor @ 450
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 4
+# 
+# 
+# Scoreboard @450 ------------------------------------
+# TEST FAILED @ 450
+# PASS count = 6 | FAIL count = 19
+# 
+# 
+# Write Driver @ 450
+# wrst = 1 | wdata = 46 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=11,rptr=13
+# Write Monitor @ 455
+# wrst = 1
+# winc = 1
+# wdata = 46
+# wfull = 0
+# wptr=11,rptr=13
+# wptr=11,rptr=13
+# wptr=12,rptr=13
+# Read Monitor @ 470
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 4
+# 
+# 
+# Scoreboard @470 ------------------------------------
+# TEST FAILED @ 470
+# PASS count = 6 | FAIL count = 20
+# 
+# 
+# Write Driver @ 470
+# wrst = 1 | wdata = 16 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=12,rptr=14
+# Write Monitor @ 475
+# wrst = 1
+# winc = 1
+# wdata = 16
+# wfull = 0
+# wptr=12,rptr=14
+# wptr=12,rptr=14
+# wptr=13,rptr=14
+# Read Monitor @ 490
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 4
+# 
+# 
+# Scoreboard @490 ------------------------------------
+# TEST FAILED @ 490
+# PASS count = 6 | FAIL count = 21
+# 
+# 
+# Write Driver @ 490
+# wrst = 1 | wdata = 32 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=13,rptr=15
+# Write Monitor @ 495
+# wrst = 1
+# winc = 1
+# wdata = 32
+# wfull = 0
+# wptr=13,rptr=15
+# wptr=13,rptr=15
+# wptr=14,rptr=15
+# Read Monitor @ 510
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 151
+# 
+# 
+# Scoreboard @510 ------------------------------------
+# TEST FAILED @ 510
+# PASS count = 6 | FAIL count = 22
+# 
+# 
+# Write Driver @ 510
+# wrst = 1 | wdata = 12 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=14,rptr=0
+# Write Monitor @ 515
+# wrst = 1
+# winc = 1
+# wdata = 12
+# wfull = 0
+# wptr=14,rptr=0
+# wptr=14,rptr=0
+# wptr=15,rptr=0
+# Read Monitor @ 530
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 151
+# 
+# 
+# Scoreboard @530 ------------------------------------
+# TEST FAILED @ 530
+# PASS count = 6 | FAIL count = 23
+# 
+# 
+# Write Driver @ 530
+# wrst = 1 | wdata = 75 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=15,rptr=1
+# Write Monitor @ 535
+# wrst = 1
+# winc = 1
+# wdata = 75
+# wfull = 0
+# wptr=15,rptr=1
+# wptr=15,rptr=1
+# wptr=0,rptr=1
+# Read Monitor @ 550
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 89
+# 
+# 
+# Scoreboard @550 ------------------------------------
+# TEST FAILED @ 550
+# PASS count = 6 | FAIL count = 24
+# 
+# 
+# Write Driver @ 550
+# wrst = 1 | wdata = 111 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=0,rptr=2
+# Write Monitor @ 555
+# wrst = 1
+# winc = 1
+# wdata = 111
+# wfull = 0
+# wptr=0,rptr=2
+# wptr=0,rptr=2
+# wptr=1,rptr=2
+# Read Monitor @ 570
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 89
+# 
+# 
+# Scoreboard @570 ------------------------------------
+# TEST FAILED @ 570
+# PASS count = 6 | FAIL count = 25
+# 
+# 
+# Write Driver @ 570
+# wrst = 1 | wdata = 101 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=1,rptr=3
+# Write Monitor @ 575
+# wrst = 1
+# winc = 1
+# wdata = 101
+# wfull = 0
+# wptr=1,rptr=3
+# wptr=1,rptr=3
+# wptr=2,rptr=3
+# Read Monitor @ 590
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 63
+# 
+# 
+# Scoreboard @590 ------------------------------------
+# TEST FAILED @ 590
+# PASS count = 6 | FAIL count = 26
+# 
+# 
+# Write Driver @ 590
+# wrst = 1 | wdata = 171 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=2,rptr=4
+# Write Monitor @ 595
+# wrst = 1
+# winc = 1
+# wdata = 171
+# wfull = 0
+# wptr=2,rptr=4
+# wptr=2,rptr=4
+# wptr=3,rptr=4
+# Read Monitor @ 610
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 180
+# 
+# 
+# Scoreboard @610 ------------------------------------
+# TEST FAILED @ 610
+# PASS count = 6 | FAIL count = 27
+# 
+# 
+# Write Driver @ 610
+# wrst = 1 | wdata = 176 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=3,rptr=5
+# Write Monitor @ 615
+# wrst = 1
+# winc = 1
+# wdata = 176
+# wfull = 0
+# wptr=3,rptr=5
+# wptr=3,rptr=5
+# wptr=4,rptr=5
+# Read Monitor @ 630
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 107
+# 
+# 
+# Scoreboard @630 ------------------------------------
+# TEST FAILED @ 630
+# PASS count = 6 | FAIL count = 28
+# 
+# 
+# Write Driver @ 630
+# wrst = 1 | wdata = 123 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=4,rptr=6
+# Write Monitor @ 635
+# wrst = 1
+# winc = 1
+# wdata = 123
+# wfull = 0
+# wptr=4,rptr=6
+# wptr=4,rptr=6
+# wptr=5,rptr=6
+# Read Monitor @ 650
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 8
+# 
+# 
+# Scoreboard @650 ------------------------------------
+# TEST FAILED @ 650
+# PASS count = 6 | FAIL count = 29
+# 
+# 
+# Write Driver @ 650
+# wrst = 1 | wdata = 172 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=5,rptr=7
+# Write Monitor @ 655
+# wrst = 1
+# winc = 1
+# wdata = 172
+# wfull = 0
+# wptr=5,rptr=7
+# wptr=5,rptr=7
+# wptr=6,rptr=7
+# Read Monitor @ 670
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 191
+# 
+# 
+# Scoreboard @670 ------------------------------------
+# TEST FAILED @ 670
+# PASS count = 6 | FAIL count = 30
+# 
+# 
+# Write Driver @ 670
+# wrst = 1 | wdata = 116 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=6,rptr=8
+# Write Monitor @ 675
+# wrst = 1
+# winc = 1
+# wdata = 116
+# wfull = 0
+# wptr=6,rptr=8
+# wptr=6,rptr=8
+# wptr=7,rptr=8
+# Read Monitor @ 690
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 201
+# 
+# 
+# Scoreboard @690 ------------------------------------
+# TEST FAILED @ 690
+# PASS count = 6 | FAIL count = 31
+# 
+# 
+# Write Driver @ 690
+# wrst = 1 | wdata = 239 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=7,rptr=9
+# Write Monitor @ 695
+# wrst = 1
+# winc = 1
+# wdata = 239
+# wfull = 0
+# wptr=7,rptr=9
+# wptr=7,rptr=9
+# wptr=8,rptr=9
+# Read Monitor @ 710
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 179
+# 
+# 
+# Scoreboard @710 ------------------------------------
+# TEST FAILED @ 710
+# PASS count = 6 | FAIL count = 32
+# 
+# 
+# Write Driver @ 710
+# wrst = 1 | wdata = 151 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=8,rptr=10
+# Write Monitor @ 715
+# wrst = 1
+# winc = 1
+# wdata = 151
+# wfull = 0
+# wptr=8,rptr=10
+# wptr=8,rptr=10
+# wptr=9,rptr=10
+# Read Monitor @ 730
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 46
+# 
+# 
+# Scoreboard @730 ------------------------------------
+# TEST FAILED @ 730
+# PASS count = 6 | FAIL count = 33
+# 
+# 
+# Write Driver @ 730
+# wrst = 1 | wdata = 103 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=9,rptr=11
+# Write Monitor @ 735
+# wrst = 1
+# winc = 1
+# wdata = 103
+# wfull = 0
+# wptr=9,rptr=11
+# wptr=9,rptr=11
+# wptr=10,rptr=11
+# Read Monitor @ 750
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 16
+# 
+# 
+# Scoreboard @750 ------------------------------------
+# TEST FAILED @ 750
+# PASS count = 6 | FAIL count = 34
+# 
+# 
+# Write Driver @ 750
+# wrst = 1 | wdata = 54 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=10,rptr=12
+# Write Monitor @ 755
+# wrst = 1
+# winc = 1
+# wdata = 54
+# wfull = 0
+# wptr=10,rptr=12
+# wptr=10,rptr=12
+# wptr=11,rptr=12
+# Read Monitor @ 770
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 32
+# 
+# 
+# Scoreboard @770 ------------------------------------
+# TEST FAILED @ 770
+# PASS count = 6 | FAIL count = 35
+# 
+# 
+# Write Driver @ 770
+# wrst = 1 | wdata = 80 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=11,rptr=13
+# Write Monitor @ 775
+# wrst = 1
+# winc = 1
+# wdata = 80
+# wfull = 0
+# wptr=11,rptr=13
+# wptr=11,rptr=13
+# wptr=12,rptr=13
+# Read Monitor @ 790
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 12
+# 
+# 
+# Scoreboard @790 ------------------------------------
+# TEST FAILED @ 790
+# PASS count = 6 | FAIL count = 36
+# 
+# 
+# Write Driver @ 790
+# wrst = 1 | wdata = 44 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=12,rptr=14
+# Write Monitor @ 795
+# wrst = 1
+# winc = 1
+# wdata = 44
+# wfull = 0
+# wptr=12,rptr=14
+# wptr=12,rptr=14
+# wptr=13,rptr=14
+# Read Monitor @ 810
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 75
+# 
+# 
+# Scoreboard @810 ------------------------------------
+# TEST FAILED @ 810
+# PASS count = 6 | FAIL count = 37
+# 
+# 
+# Write Driver @ 810
+# wrst = 1 | wdata = 241 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=13,rptr=15
+# Write Monitor @ 815
+# wrst = 1
+# winc = 1
+# wdata = 241
+# wfull = 0
+# wptr=13,rptr=15
+# wptr=13,rptr=15
+# wptr=14,rptr=15
+# Read Monitor @ 830
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 111
+# 
+# 
+# Scoreboard @830 ------------------------------------
+# TEST FAILED @ 830
+# PASS count = 6 | FAIL count = 38
+# 
+# 
+# Write Driver @ 830
+# wrst = 1 | wdata = 205 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=14,rptr=0
+# Write Monitor @ 835
+# wrst = 1
+# winc = 1
+# wdata = 205
+# wfull = 0
+# wptr=14,rptr=0
+# wptr=14,rptr=0
+# wptr=15,rptr=0
+# Read Monitor @ 850
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 101
+# 
+# 
+# Scoreboard @850 ------------------------------------
+# TEST FAILED @ 850
+# PASS count = 6 | FAIL count = 39
+# 
+# 
+# Write Driver @ 850
+# wrst = 1 | wdata = 149 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=15,rptr=1
+# Write Monitor @ 855
+# wrst = 1
+# winc = 1
+# wdata = 149
+# wfull = 0
+# wptr=15,rptr=1
+# wptr=15,rptr=1
+# wptr=0,rptr=1
+# Read Monitor @ 870
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 171
+# 
+# 
+# Scoreboard @870 ------------------------------------
+# TEST FAILED @ 870
+# PASS count = 6 | FAIL count = 40
+# 
+# 
+# Write Driver @ 870
+# wrst = 1 | wdata = 80 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=0,rptr=2
+# Write Monitor @ 875
+# wrst = 1
+# winc = 1
+# wdata = 80
+# wfull = 0
+# wptr=0,rptr=2
+# wptr=0,rptr=2
+# wptr=1,rptr=2
+# Read Monitor @ 890
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 176
+# 
+# 
+# Scoreboard @890 ------------------------------------
+# TEST FAILED @ 890
+# PASS count = 6 | FAIL count = 41
+# 
+# 
+# Write Driver @ 890
+# wrst = 1 | wdata = 16 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=1,rptr=3
+# Write Monitor @ 895
+# wrst = 1
+# winc = 1
+# wdata = 16
+# wfull = 0
+# wptr=1,rptr=3
+# wptr=1,rptr=3
+# wptr=2,rptr=3
+# Read Monitor @ 910
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 123
+# 
+# 
+# Scoreboard @910 ------------------------------------
+# TEST FAILED @ 910
+# PASS count = 6 | FAIL count = 42
+# 
+# 
+# Write Driver @ 910
+# wrst = 1 | wdata = 116 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=2,rptr=4
+# Write Monitor @ 915
+# wrst = 1
+# winc = 1
+# wdata = 116
+# wfull = 0
+# wptr=2,rptr=4
+# wptr=2,rptr=4
+# wptr=3,rptr=4
+# Read Monitor @ 930
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 172
+# 
+# 
+# Scoreboard @930 ------------------------------------
+# TEST FAILED @ 930
+# PASS count = 6 | FAIL count = 43
+# 
+# 
+# Write Driver @ 930
+# wrst = 1 | wdata = 136 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=3,rptr=5
+# Write Monitor @ 935
+# wrst = 1
+# winc = 1
+# wdata = 136
+# wfull = 0
+# wptr=3,rptr=5
+# wptr=3,rptr=5
+# wptr=4,rptr=5
+# Read Monitor @ 950
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 116
+# 
+# 
+# Scoreboard @950 ------------------------------------
+# TEST FAILED @ 950
+# PASS count = 6 | FAIL count = 44
+# 
+# 
+# Write Driver @ 950
+# wrst = 1 | wdata = 39 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=4,rptr=6
+# Write Monitor @ 955
+# wrst = 1
+# winc = 1
+# wdata = 39
+# wfull = 0
+# wptr=4,rptr=6
+# wptr=4,rptr=6
+# wptr=5,rptr=6
+# Read Monitor @ 970
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 239
+# 
+# 
+# Scoreboard @970 ------------------------------------
+# TEST FAILED @ 970
+# PASS count = 6 | FAIL count = 45
+# 
+# 
+# Write Driver @ 970
+# wrst = 1 | wdata = 87 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=5,rptr=7
+# Write Monitor @ 975
+# wrst = 1
+# winc = 1
+# wdata = 87
+# wfull = 0
+# wptr=5,rptr=7
+# wptr=5,rptr=7
+# wptr=6,rptr=7
+# Read Monitor @ 990
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 151
+# 
+# 
+# Scoreboard @990 ------------------------------------
+# TEST FAILED @ 990
+# PASS count = 6 | FAIL count = 46
+# 
+# 
+# Write Driver @ 990
+# wrst = 1 | wdata = 124 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=6,rptr=8
+# Write Monitor @ 995
+# wrst = 1
+# winc = 1
+# wdata = 124
+# wfull = 0
+# wptr=6,rptr=8
+# wptr=6,rptr=8
+# wptr=7,rptr=8
+# Read Monitor @ 1010
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 103
+# 
+# 
+# Scoreboard @1010 ------------------------------------
+# TEST FAILED @ 1010
+# PASS count = 6 | FAIL count = 47
+# 
+# 
+# Write Driver @ 1010
+# wrst = 1 | wdata = 250 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=7,rptr=9
+# Write Monitor @ 1015
+# wrst = 1
+# winc = 1
+# wdata = 250
+# wfull = 0
+# wptr=7,rptr=9
+# wptr=7,rptr=9
+# wptr=8,rptr=9
+# Read Monitor @ 1030
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 54
+# 
+# 
+# Scoreboard @1030 ------------------------------------
+# TEST FAILED @ 1030
+# PASS count = 6 | FAIL count = 48
+# 
+# 
+# Write Driver @ 1030
+# wrst = 1 | wdata = 191 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=8,rptr=10
+# Write Monitor @ 1035
+# wrst = 1
+# winc = 1
+# wdata = 191
+# wfull = 0
+# wptr=8,rptr=10
+# wptr=8,rptr=10
+# wptr=9,rptr=10
+# Read Monitor @ 1050
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 80
+# 
+# 
+# Scoreboard @1050 ------------------------------------
+# TEST FAILED @ 1050
+# PASS count = 6 | FAIL count = 49
+# 
+# 
+# Write Driver @ 1050
+# wrst = 1 | wdata = 119 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=9,rptr=11
+# Write Monitor @ 1055
+# wrst = 1
+# winc = 1
+# wdata = 119
+# wfull = 0
+# wptr=9,rptr=11
+# wptr=9,rptr=11
+# wptr=10,rptr=11
+# Read Monitor @ 1070
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 44
+# 
+# 
+# Scoreboard @1070 ------------------------------------
+# TEST FAILED @ 1070
+# PASS count = 6 | FAIL count = 50
+# 
+# 
+# Write Driver @ 1070
+# wrst = 1 | wdata = 209 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=10,rptr=12
+# Write Monitor @ 1075
+# wrst = 1
+# winc = 1
+# wdata = 209
+# wfull = 0
+# wptr=10,rptr=12
+# wptr=10,rptr=12
+# wptr=11,rptr=12
+# Read Monitor @ 1090
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 241
+# 
+# 
+# Scoreboard @1090 ------------------------------------
+# TEST FAILED @ 1090
+# PASS count = 6 | FAIL count = 51
+# 
+# 
+# Write Driver @ 1090
+# wrst = 1 | wdata = 36 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=11,rptr=13
+# Write Monitor @ 1095
+# wrst = 1
+# winc = 1
+# wdata = 36
+# wfull = 0
+# wptr=11,rptr=13
+# wptr=11,rptr=13
+# wptr=12,rptr=13
+# Read Monitor @ 1110
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 205
+# 
+# 
+# Scoreboard @1110 ------------------------------------
+# TEST FAILED @ 1110
+# PASS count = 6 | FAIL count = 52
+# 
+# 
+# Write Driver @ 1110
+# wrst = 1 | wdata = 132 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=12,rptr=14
+# Write Monitor @ 1115
+# wrst = 1
+# winc = 1
+# wdata = 132
+# wfull = 0
+# wptr=12,rptr=14
+# wptr=12,rptr=14
+# wptr=13,rptr=14
+# Read Monitor @ 1130
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 149
+# 
+# 
+# Scoreboard @1130 ------------------------------------
+# TEST FAILED @ 1130
+# PASS count = 6 | FAIL count = 53
+# 
+# 
+# Write Driver @ 1130
+# wrst = 1 | wdata = 175 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=13,rptr=15
+# Write Monitor @ 1135
+# wrst = 1
+# winc = 1
+# wdata = 175
+# wfull = 0
+# wptr=13,rptr=15
+# wptr=13,rptr=15
+# wptr=14,rptr=15
+# Read Monitor @ 1150
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 80
+# 
+# 
+# Scoreboard @1150 ------------------------------------
+# TEST FAILED @ 1150
+# PASS count = 6 | FAIL count = 54
+# 
+# 
+# Write Driver @ 1150
+# wrst = 1 | wdata = 247 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=14,rptr=0
+# Write Monitor @ 1155
+# wrst = 1
+# winc = 1
+# wdata = 247
+# wfull = 0
+# wptr=14,rptr=0
+# wptr=14,rptr=0
+# wptr=15,rptr=0
+# Read Monitor @ 1170
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 16
+# 
+# 
+# Scoreboard @1170 ------------------------------------
+# TEST FAILED @ 1170
+# PASS count = 6 | FAIL count = 55
+# 
+# 
+# Write Driver @ 1170
+# wrst = 1 | wdata = 156 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=15,rptr=1
+# Write Monitor @ 1175
+# wrst = 1
+# winc = 1
+# wdata = 156
+# wfull = 0
+# wptr=15,rptr=1
+# wptr=15,rptr=1
+# wptr=0,rptr=1
+# Read Monitor @ 1190
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 116
+# 
+# 
+# Scoreboard @1190 ------------------------------------
+# TEST FAILED @ 1190
+# PASS count = 6 | FAIL count = 56
+# 
+# 
+# Write Driver @ 1190
+# wrst = 1 | wdata = 112 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=0,rptr=2
+# Write Monitor @ 1195
+# wrst = 1
+# winc = 1
+# wdata = 112
+# wfull = 0
+# wptr=0,rptr=2
+# wptr=0,rptr=2
+# wptr=1,rptr=2
+# Read Monitor @ 1210
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 136
+# 
+# 
+# Scoreboard @1210 ------------------------------------
+# TEST FAILED @ 1210
+# PASS count = 6 | FAIL count = 57
+# 
+# 
+# Write Driver @ 1210
+# wrst = 1 | wdata = 235 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=1,rptr=3
+# Write Monitor @ 1215
+# wrst = 1
+# winc = 1
+# wdata = 235
+# wfull = 0
+# wptr=1,rptr=3
+# wptr=1,rptr=3
+# wptr=2,rptr=3
+# Read Monitor @ 1230
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 39
+# 
+# 
+# Scoreboard @1230 ------------------------------------
+# TEST FAILED @ 1230
+# PASS count = 6 | FAIL count = 58
+# 
+# 
+# Write Driver @ 1230
+# wrst = 1 | wdata = 226 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=2,rptr=4
+# Write Monitor @ 1235
+# wrst = 1
+# winc = 1
+# wdata = 226
+# wfull = 0
+# wptr=2,rptr=4
+# wptr=2,rptr=4
+# wptr=3,rptr=4
+# Read Monitor @ 1250
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 87
+# 
+# 
+# Scoreboard @1250 ------------------------------------
+# TEST FAILED @ 1250
+# PASS count = 6 | FAIL count = 59
+# 
+# 
+# Write Driver @ 1250
+# wrst = 1 | wdata = 50 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=3,rptr=5
+# Write Monitor @ 1255
+# wrst = 1
+# winc = 1
+# wdata = 50
+# wfull = 0
+# wptr=3,rptr=5
+# wptr=3,rptr=5
+# wptr=4,rptr=5
+# Read Monitor @ 1270
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 124
+# 
+# 
+# Scoreboard @1270 ------------------------------------
+# TEST FAILED @ 1270
+# PASS count = 6 | FAIL count = 60
+# 
+# 
+# Write Driver @ 1270
+# wrst = 1 | wdata = 114 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=4,rptr=6
+# Write Monitor @ 1275
+# wrst = 1
+# winc = 1
+# wdata = 114
+# wfull = 0
+# wptr=4,rptr=6
+# wptr=4,rptr=6
+# wptr=5,rptr=6
+# Read Monitor @ 1290
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 250
+# 
+# 
+# Scoreboard @1290 ------------------------------------
+# TEST FAILED @ 1290
+# PASS count = 6 | FAIL count = 61
+# 
+# 
+# Write Driver @ 1290
+# wrst = 1 | wdata = 26 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=5,rptr=7
+# Write Monitor @ 1295
+# wrst = 1
+# winc = 1
+# wdata = 26
+# wfull = 0
+# wptr=5,rptr=7
+# wptr=5,rptr=7
+# wptr=6,rptr=7
+# Read Monitor @ 1310
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 191
+# 
+# 
+# Scoreboard @1310 ------------------------------------
+# TEST FAILED @ 1310
+# PASS count = 6 | FAIL count = 62
+# 
+# 
+# Write Driver @ 1310
+# wrst = 1 | wdata = 84 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=6,rptr=8
+# Write Monitor @ 1315
+# wrst = 1
+# winc = 1
+# wdata = 84
+# wfull = 0
+# wptr=6,rptr=8
+# wptr=6,rptr=8
+# wptr=7,rptr=8
+# Read Monitor @ 1330
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 119
+# 
+# 
+# Scoreboard @1330 ------------------------------------
+# TEST FAILED @ 1330
+# PASS count = 6 | FAIL count = 63
+# 
+# 
+# Write Driver @ 1330
+# wrst = 1 | wdata = 119 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=7,rptr=9
+# Write Monitor @ 1335
+# wrst = 1
+# winc = 1
+# wdata = 119
+# wfull = 0
+# wptr=7,rptr=9
+# wptr=7,rptr=9
+# wptr=8,rptr=9
+# Read Monitor @ 1350
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 209
+# 
+# 
+# Scoreboard @1350 ------------------------------------
+# TEST FAILED @ 1350
+# PASS count = 6 | FAIL count = 64
+# 
+# 
+# Write Driver @ 1350
+# wrst = 1 | wdata = 205 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=8,rptr=10
+# Write Monitor @ 1355
+# wrst = 1
+# winc = 1
+# wdata = 205
+# wfull = 0
+# wptr=8,rptr=10
+# wptr=8,rptr=10
+# wptr=9,rptr=10
+# Read Monitor @ 1370
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 36
+# 
+# 
+# Scoreboard @1370 ------------------------------------
+# TEST FAILED @ 1370
+# PASS count = 6 | FAIL count = 65
+# 
+# 
+# Write Driver @ 1370
+# wrst = 1 | wdata = 119 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=9,rptr=11
+# Write Monitor @ 1375
+# wrst = 1
+# winc = 1
+# wdata = 119
+# wfull = 0
+# wptr=9,rptr=11
+# wptr=9,rptr=11
+# wptr=10,rptr=11
+# Read Monitor @ 1390
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 132
+# 
+# 
+# Scoreboard @1390 ------------------------------------
+# TEST FAILED @ 1390
+# PASS count = 6 | FAIL count = 66
+# 
+# 
+# Write Driver @ 1390
+# wrst = 1 | wdata = 182 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=10,rptr=12
+# Write Monitor @ 1395
+# wrst = 1
+# winc = 1
+# wdata = 182
+# wfull = 0
+# wptr=10,rptr=12
+# wptr=10,rptr=12
+# wptr=11,rptr=12
+# Read Monitor @ 1410
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 175
+# 
+# 
+# Scoreboard @1410 ------------------------------------
+# TEST FAILED @ 1410
+# PASS count = 6 | FAIL count = 67
+# 
+# 
+# Write Driver @ 1410
+# wrst = 1 | wdata = 168 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=11,rptr=13
+# Write Monitor @ 1415
+# wrst = 1
+# winc = 1
+# wdata = 168
+# wfull = 0
+# wptr=11,rptr=13
+# wptr=11,rptr=13
+# wptr=12,rptr=13
+# Read Monitor @ 1430
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 247
+# 
+# 
+# Scoreboard @1430 ------------------------------------
+# TEST FAILED @ 1430
+# PASS count = 6 | FAIL count = 68
+# 
+# 
+# Write Driver @ 1430
+# wrst = 1 | wdata = 94 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=12,rptr=14
+# Write Monitor @ 1435
+# wrst = 1
+# winc = 1
+# wdata = 94
+# wfull = 0
+# wptr=12,rptr=14
+# wptr=12,rptr=14
+# wptr=13,rptr=14
+# Read Monitor @ 1450
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 156
+# 
+# 
+# Scoreboard @1450 ------------------------------------
+# TEST FAILED @ 1450
+# PASS count = 6 | FAIL count = 69
+# 
+# 
+# Write Driver @ 1450
+# wrst = 1 | wdata = 115 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=13,rptr=15
+# Write Monitor @ 1455
+# wrst = 1
+# winc = 1
+# wdata = 115
+# wfull = 0
+# wptr=13,rptr=15
+# wptr=13,rptr=15
+# wptr=14,rptr=15
+# Read Monitor @ 1470
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 112
+# 
+# 
+# Scoreboard @1470 ------------------------------------
+# TEST FAILED @ 1470
+# PASS count = 6 | FAIL count = 70
+# 
+# 
+# Write Driver @ 1470
+# wrst = 1 | wdata = 87 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=14,rptr=0
+# Write Monitor @ 1475
+# wrst = 1
+# winc = 1
+# wdata = 87
+# wfull = 0
+# wptr=14,rptr=0
+# wptr=14,rptr=0
+# wptr=15,rptr=0
+# Read Monitor @ 1490
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 235
+# 
+# 
+# Scoreboard @1490 ------------------------------------
+# TEST FAILED @ 1490
+# PASS count = 6 | FAIL count = 71
+# 
+# 
+# Write Driver @ 1490
+# wrst = 1 | wdata = 73 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=15,rptr=1
+# Write Monitor @ 1495
+# wrst = 1
+# winc = 1
+# wdata = 73
+# wfull = 0
+# wptr=15,rptr=1
+# wptr=15,rptr=1
+# wptr=0,rptr=1
+# Read Monitor @ 1510
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 226
+# 
+# 
+# Scoreboard @1510 ------------------------------------
+# TEST FAILED @ 1510
+# PASS count = 6 | FAIL count = 72
+# 
+# 
+# Write Driver @ 1510
+# wrst = 1 | wdata = 74 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=0,rptr=2
+# Write Monitor @ 1515
+# wrst = 1
+# winc = 1
+# wdata = 74
+# wfull = 0
+# wptr=0,rptr=2
+# wptr=0,rptr=2
+# wptr=1,rptr=2
+# Read Monitor @ 1530
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 50
+# 
+# 
+# Scoreboard @1530 ------------------------------------
+# TEST FAILED @ 1530
+# PASS count = 6 | FAIL count = 73
+# 
+# 
+# Write Driver @ 1530
+# wrst = 1 | wdata = 254 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=1,rptr=3
+# Write Monitor @ 1535
+# wrst = 1
+# winc = 1
+# wdata = 254
+# wfull = 0
+# wptr=1,rptr=3
+# wptr=1,rptr=3
+# wptr=2,rptr=3
+# Read Monitor @ 1550
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 114
+# 
+# 
+# Scoreboard @1550 ------------------------------------
+# TEST FAILED @ 1550
+# PASS count = 6 | FAIL count = 74
+# 
+# 
+# Write Driver @ 1550
+# wrst = 1 | wdata = 145 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=2,rptr=4
+# Write Monitor @ 1555
+# wrst = 1
+# winc = 1
+# wdata = 145
+# wfull = 0
+# wptr=2,rptr=4
+# wptr=2,rptr=4
+# wptr=3,rptr=4
+# Read Monitor @ 1570
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 26
+# 
+# 
+# Scoreboard @1570 ------------------------------------
+# TEST FAILED @ 1570
+# PASS count = 6 | FAIL count = 75
+# 
+# 
+# Write Driver @ 1570
+# wrst = 1 | wdata = 101 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=3,rptr=5
+# Write Monitor @ 1575
+# wrst = 1
+# winc = 1
+# wdata = 101
+# wfull = 0
+# wptr=3,rptr=5
+# wptr=3,rptr=5
+# wptr=4,rptr=5
+# Read Monitor @ 1590
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 84
+# 
+# 
+# Scoreboard @1590 ------------------------------------
+# TEST FAILED @ 1590
+# PASS count = 6 | FAIL count = 76
+# 
+# 
+# Write Driver @ 1590
+# wrst = 1 | wdata = 94 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=4,rptr=6
+# Write Monitor @ 1595
+# wrst = 1
+# winc = 1
+# wdata = 94
+# wfull = 0
+# wptr=4,rptr=6
+# wptr=4,rptr=6
+# wptr=5,rptr=6
+# Read Monitor @ 1610
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 119
+# 
+# 
+# Scoreboard @1610 ------------------------------------
+# TEST FAILED @ 1610
+# PASS count = 6 | FAIL count = 77
+# 
+# 
+# Write Driver @ 1610
+# wrst = 1 | wdata = 211 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=5,rptr=7
+# Write Monitor @ 1615
+# wrst = 1
+# winc = 1
+# wdata = 211
+# wfull = 0
+# wptr=5,rptr=7
+# wptr=5,rptr=7
+# wptr=6,rptr=7
+# Read Monitor @ 1630
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 205
+# 
+# 
+# Scoreboard @1630 ------------------------------------
+# TEST FAILED @ 1630
+# PASS count = 6 | FAIL count = 78
+# 
+# 
+# Write Driver @ 1630
+# wrst = 1 | wdata = 39 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=6,rptr=8
+# Write Monitor @ 1635
+# wrst = 1
+# winc = 1
+# wdata = 39
+# wfull = 0
+# wptr=6,rptr=8
+# wptr=6,rptr=8
+# wptr=7,rptr=8
+# Read Monitor @ 1650
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 119
+# 
+# 
+# Scoreboard @1650 ------------------------------------
+# TEST FAILED @ 1650
+# PASS count = 6 | FAIL count = 79
+# 
+# 
+# Write Driver @ 1650
+# wrst = 1 | wdata = 247 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=7,rptr=9
+# Write Monitor @ 1655
+# wrst = 1
+# winc = 1
+# wdata = 247
+# wfull = 0
+# wptr=7,rptr=9
+# wptr=7,rptr=9
+# wptr=8,rptr=9
+# Read Monitor @ 1670
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 182
+# 
+# 
+# Scoreboard @1670 ------------------------------------
+# TEST FAILED @ 1670
+# PASS count = 6 | FAIL count = 80
+# 
+# 
+# Write Driver @ 1670
+# wrst = 1 | wdata = 95 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=8,rptr=10
+# Write Monitor @ 1675
+# wrst = 1
+# winc = 1
+# wdata = 95
+# wfull = 0
+# wptr=8,rptr=10
+# wptr=8,rptr=10
+# wptr=9,rptr=10
+# Read Monitor @ 1690
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 168
+# 
+# 
+# Scoreboard @1690 ------------------------------------
+# TEST FAILED @ 1690
+# PASS count = 6 | FAIL count = 81
+# 
+# 
+# Write Driver @ 1690
+# wrst = 1 | wdata = 27 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=9,rptr=11
+# Write Monitor @ 1695
+# wrst = 1
+# winc = 1
+# wdata = 27
+# wfull = 0
+# wptr=9,rptr=11
+# wptr=9,rptr=11
+# wptr=10,rptr=11
+# Read Monitor @ 1710
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 94
+# 
+# 
+# Scoreboard @1710 ------------------------------------
+# TEST FAILED @ 1710
+# PASS count = 6 | FAIL count = 82
+# 
+# 
+# Write Driver @ 1710
+# wrst = 1 | wdata = 141 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=10,rptr=12
+# Write Monitor @ 1715
+# wrst = 1
+# winc = 1
+# wdata = 141
+# wfull = 0
+# wptr=10,rptr=12
+# wptr=10,rptr=12
+# wptr=11,rptr=12
+# Read Monitor @ 1730
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 115
+# 
+# 
+# Scoreboard @1730 ------------------------------------
+# TEST FAILED @ 1730
+# PASS count = 6 | FAIL count = 83
+# 
+# 
+# Write Driver @ 1730
+# wrst = 1 | wdata = 187 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=11,rptr=13
+# Write Monitor @ 1735
+# wrst = 1
+# winc = 1
+# wdata = 187
+# wfull = 0
+# wptr=11,rptr=13
+# wptr=11,rptr=13
+# wptr=12,rptr=13
+# Read Monitor @ 1750
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 87
+# 
+# 
+# Scoreboard @1750 ------------------------------------
+# TEST FAILED @ 1750
+# PASS count = 6 | FAIL count = 84
+# 
+# 
+# Write Driver @ 1750
+# wrst = 1 | wdata = 253 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=12,rptr=14
+# Write Monitor @ 1755
+# wrst = 1
+# winc = 1
+# wdata = 253
+# wfull = 0
+# wptr=12,rptr=14
+# wptr=12,rptr=14
+# wptr=13,rptr=14
+# Read Monitor @ 1770
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 73
+# 
+# 
+# Scoreboard @1770 ------------------------------------
+# TEST FAILED @ 1770
+# PASS count = 6 | FAIL count = 85
+# 
+# 
+# Write Driver @ 1770
+# wrst = 1 | wdata = 81 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=13,rptr=15
+# Write Monitor @ 1775
+# wrst = 1
+# winc = 1
+# wdata = 81
+# wfull = 0
+# wptr=13,rptr=15
+# wptr=13,rptr=15
+# wptr=14,rptr=15
+# Read Monitor @ 1790
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 74
+# 
+# 
+# Scoreboard @1790 ------------------------------------
+# TEST FAILED @ 1790
+# PASS count = 6 | FAIL count = 86
+# 
+# 
+# Write Driver @ 1790
+# wrst = 1 | wdata = 130 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=14,rptr=0
+# Write Monitor @ 1795
+# wrst = 1
+# winc = 1
+# wdata = 130
+# wfull = 0
+# wptr=14,rptr=0
+# wptr=14,rptr=0
+# wptr=15,rptr=0
+# Read Monitor @ 1810
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 254
+# 
+# 
+# Scoreboard @1810 ------------------------------------
+# TEST FAILED @ 1810
+# PASS count = 6 | FAIL count = 87
+# 
+# 
+# Write Driver @ 1810
+# wrst = 1 | wdata = 236 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=15,rptr=1
+# Write Monitor @ 1815
+# wrst = 1
+# winc = 1
+# wdata = 236
+# wfull = 0
+# wptr=15,rptr=1
+# wptr=15,rptr=1
+# wptr=0,rptr=1
+# Read Monitor @ 1830
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 145
+# 
+# 
+# Scoreboard @1830 ------------------------------------
+# TEST FAILED @ 1830
+# PASS count = 6 | FAIL count = 88
+# 
+# 
+# Write Driver @ 1830
+# wrst = 1 | wdata = 169 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=0,rptr=2
+# Write Monitor @ 1835
+# wrst = 1
+# winc = 1
+# wdata = 169
+# wfull = 0
+# wptr=0,rptr=2
+# wptr=0,rptr=2
+# wptr=1,rptr=2
+# Read Monitor @ 1850
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 101
+# 
+# 
+# Scoreboard @1850 ------------------------------------
+# TEST FAILED @ 1850
+# PASS count = 6 | FAIL count = 89
+# 
+# 
+# Write Driver @ 1850
+# wrst = 1 | wdata = 190 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=1,rptr=3
+# Write Monitor @ 1855
+# wrst = 1
+# winc = 1
+# wdata = 190
+# wfull = 0
+# wptr=1,rptr=3
+# wptr=1,rptr=3
+# wptr=2,rptr=3
+# Read Monitor @ 1870
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 94
+# 
+# 
+# Scoreboard @1870 ------------------------------------
+# TEST FAILED @ 1870
+# PASS count = 6 | FAIL count = 90
+# 
+# 
+# Write Driver @ 1870
+# wrst = 1 | wdata = 3 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=2,rptr=4
+# Write Monitor @ 1875
+# wrst = 1
+# winc = 1
+# wdata = 3
+# wfull = 0
+# wptr=2,rptr=4
+# wptr=2,rptr=4
+# wptr=3,rptr=4
+# Read Monitor @ 1890
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 211
+# 
+# 
+# Scoreboard @1890 ------------------------------------
+# TEST FAILED @ 1890
+# PASS count = 6 | FAIL count = 91
+# 
+# 
+# Write Driver @ 1890
+# wrst = 1 | wdata = 197 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=3,rptr=5
+# Write Monitor @ 1895
+# wrst = 1
+# winc = 1
+# wdata = 197
+# wfull = 0
+# wptr=3,rptr=5
+# wptr=3,rptr=5
+# wptr=4,rptr=5
+# Read Monitor @ 1910
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 39
+# 
+# 
+# Scoreboard @1910 ------------------------------------
+# TEST FAILED @ 1910
+# PASS count = 6 | FAIL count = 92
+# 
+# 
+# Write Driver @ 1910
+# wrst = 1 | wdata = 163 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=4,rptr=6
+# Write Monitor @ 1915
+# wrst = 1
+# winc = 1
+# wdata = 163
+# wfull = 0
+# wptr=4,rptr=6
+# wptr=4,rptr=6
+# wptr=5,rptr=6
+# Read Monitor @ 1930
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 247
+# 
+# 
+# Scoreboard @1930 ------------------------------------
+# TEST FAILED @ 1930
+# PASS count = 6 | FAIL count = 93
+# 
+# 
+# Write Driver @ 1930
+# wrst = 1 | wdata = 64 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=5,rptr=7
+# Write Monitor @ 1935
+# wrst = 1
+# winc = 1
+# wdata = 64
+# wfull = 0
+# wptr=5,rptr=7
+# wptr=5,rptr=7
+# wptr=6,rptr=7
+# Read Monitor @ 1950
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 95
+# 
+# 
+# Scoreboard @1950 ------------------------------------
+# TEST FAILED @ 1950
+# PASS count = 6 | FAIL count = 94
+# 
+# 
+# Write Driver @ 1950
+# wrst = 1 | wdata = 13 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=6,rptr=8
+# Write Monitor @ 1955
+# wrst = 1
+# winc = 1
+# wdata = 13
+# wfull = 0
+# wptr=6,rptr=8
+# wptr=6,rptr=8
+# wptr=7,rptr=8
+# Read Monitor @ 1970
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 27
+# 
+# 
+# Scoreboard @1970 ------------------------------------
+# TEST FAILED @ 1970
+# PASS count = 6 | FAIL count = 95
+# 
+# 
+# Write Driver @ 1970
+# wrst = 1 | wdata = 183 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=7,rptr=9
+# Write Monitor @ 1975
+# wrst = 1
+# winc = 1
+# wdata = 183
+# wfull = 0
+# wptr=7,rptr=9
+# wptr=7,rptr=9
+# wptr=8,rptr=9
+# Read Monitor @ 1990
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 141
+# 
+# 
+# Scoreboard @1990 ------------------------------------
+# TEST FAILED @ 1990
+# PASS count = 6 | FAIL count = 96
+# 
+# 
+# Write Driver @ 1990
+# wrst = 1 | wdata = 36 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=8,rptr=10
+# Write Monitor @ 1995
+# wrst = 1
+# winc = 1
+# wdata = 36
+# wfull = 0
+# wptr=8,rptr=10
+# wptr=8,rptr=10
+# wptr=9,rptr=10
+# Read Monitor @ 2010
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 187
+# 
+# 
+# Scoreboard @2010 ------------------------------------
+# TEST FAILED @ 2010
+# PASS count = 6 | FAIL count = 97
+# 
+# 
+# Write Driver @ 2010
+# wrst = 1 | wdata = 18 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=9,rptr=11
+# Write Monitor @ 2015
+# wrst = 1
+# winc = 1
+# wdata = 18
+# wfull = 0
+# wptr=9,rptr=11
+# wptr=9,rptr=11
+# wptr=10,rptr=11
+# Read Monitor @ 2030
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 253
+# 
+# 
+# Scoreboard @2030 ------------------------------------
+# TEST FAILED @ 2030
+# PASS count = 6 | FAIL count = 98
+# 
+# 
+# Write Driver @ 2030
+# wrst = 1 | wdata = 1 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=10,rptr=12
+# Write Monitor @ 2035
+# wrst = 1
+# winc = 1
+# wdata = 1
+# wfull = 0
+# wptr=10,rptr=12
+# wptr=10,rptr=12
+# wptr=11,rptr=12
+# Read Monitor @ 2050
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 81
+# 
+# 
+# Scoreboard @2050 ------------------------------------
+# TEST FAILED @ 2050
+# PASS count = 6 | FAIL count = 99
+# 
+# 
+# Write Driver @ 2050
+# wrst = 1 | wdata = 225 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=11,rptr=13
+# Write Monitor @ 2055
+# wrst = 1
+# winc = 1
+# wdata = 225
+# wfull = 0
+# wptr=11,rptr=13
+# wptr=11,rptr=13
+# wptr=12,rptr=13
+# Read Monitor @ 2070
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 130
+# 
+# 
+# Scoreboard @2070 ------------------------------------
+# TEST FAILED @ 2070
+# PASS count = 6 | FAIL count = 100
+# 
+# 
+# Write Driver @ 2070
+# wrst = 1 | wdata = 229 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=12,rptr=14
+# Write Monitor @ 2075
+# wrst = 1
+# winc = 1
+# wdata = 229
+# wfull = 0
+# wptr=12,rptr=14
+# wptr=12,rptr=14
+# wptr=13,rptr=14
+# Read Monitor @ 2090
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 236
+# 
+# 
+# Scoreboard @2090 ------------------------------------
+# TEST FAILED @ 2090
+# PASS count = 6 | FAIL count = 101
+# 
+# 
+# Write Driver @ 2090
+# wrst = 1 | wdata = 21 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=13,rptr=15
+# Write Monitor @ 2095
+# wrst = 1
+# winc = 1
+# wdata = 21
+# wfull = 0
+# wptr=13,rptr=15
+# wptr=13,rptr=15
+# wptr=14,rptr=15
+# Read Monitor @ 2110
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 169
+# 
+# 
+# Scoreboard @2110 ------------------------------------
+# TEST FAILED @ 2110
+# PASS count = 6 | FAIL count = 102
+# 
+# 
+# Write Driver @ 2110
+# wrst = 1 | wdata = 222 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=14,rptr=0
+# Write Monitor @ 2115
+# wrst = 1
+# winc = 1
+# wdata = 222
+# wfull = 0
+# wptr=14,rptr=0
+# wptr=14,rptr=0
+# wptr=15,rptr=0
+# Read Monitor @ 2130
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 190
+# 
+# 
+# Scoreboard @2130 ------------------------------------
+# TEST FAILED @ 2130
+# PASS count = 6 | FAIL count = 103
+# 
+# 
+# Write Driver @ 2130
+# wrst = 1 | wdata = 22 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=15,rptr=1
+# Write Monitor @ 2135
+# wrst = 1
+# winc = 1
+# wdata = 22
+# wfull = 0
+# wptr=15,rptr=1
+# wptr=15,rptr=1
+# wptr=0,rptr=1
+# Read Monitor @ 2150
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 3
+# 
+# 
+# Scoreboard @2150 ------------------------------------
+# TEST FAILED @ 2150
+# PASS count = 6 | FAIL count = 104
+# 
+# 
+# Write Driver @ 2150
+# wrst = 1 | wdata = 21 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=0,rptr=2
+# Write Monitor @ 2155
+# wrst = 1
+# winc = 1
+# wdata = 21
+# wfull = 0
+# wptr=0,rptr=2
+# wptr=0,rptr=2
+# wptr=1,rptr=2
+# Read Monitor @ 2170
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 197
+# 
+# 
+# Scoreboard @2170 ------------------------------------
+# TEST FAILED @ 2170
+# PASS count = 6 | FAIL count = 105
+# 
+# 
+# Write Driver @ 2170
+# wrst = 1 | wdata = 219 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=1,rptr=3
+# Write Monitor @ 2175
+# wrst = 1
+# winc = 1
+# wdata = 219
+# wfull = 0
+# wptr=1,rptr=3
+# wptr=1,rptr=3
+# wptr=2,rptr=3
+# Read Monitor @ 2190
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 163
+# 
+# 
+# Scoreboard @2190 ------------------------------------
+# TEST FAILED @ 2190
+# PASS count = 6 | FAIL count = 106
+# 
+# 
+# Write Driver @ 2190
+# wrst = 1 | wdata = 182 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=2,rptr=4
+# Write Monitor @ 2195
+# wrst = 1
+# winc = 1
+# wdata = 182
+# wfull = 0
+# wptr=2,rptr=4
+# wptr=2,rptr=4
+# wptr=3,rptr=4
+# Read Monitor @ 2210
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 64
+# 
+# 
+# Scoreboard @2210 ------------------------------------
+# TEST FAILED @ 2210
+# PASS count = 6 | FAIL count = 107
+# 
+# 
+# Write Driver @ 2210
+# wrst = 1 | wdata = 116 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=3,rptr=5
+# Write Monitor @ 2215
+# wrst = 1
+# winc = 1
+# wdata = 116
+# wfull = 0
+# wptr=3,rptr=5
+# wptr=3,rptr=5
+# wptr=4,rptr=5
+# Read Monitor @ 2230
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 13
+# 
+# 
+# Scoreboard @2230 ------------------------------------
+# TEST FAILED @ 2230
+# PASS count = 6 | FAIL count = 108
+# 
+# 
+# Write Driver @ 2230
+# wrst = 1 | wdata = 211 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=4,rptr=6
+# Write Monitor @ 2235
+# wrst = 1
+# winc = 1
+# wdata = 211
+# wfull = 0
+# wptr=4,rptr=6
+# wptr=4,rptr=6
+# wptr=5,rptr=6
+# Read Monitor @ 2250
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 183
+# 
+# 
+# Scoreboard @2250 ------------------------------------
+# TEST FAILED @ 2250
+# PASS count = 6 | FAIL count = 109
+# 
+# 
+# Write Driver @ 2250
+# wrst = 1 | wdata = 12 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=5,rptr=7
+# Write Monitor @ 2255
+# wrst = 1
+# winc = 1
+# wdata = 12
+# wfull = 0
+# wptr=5,rptr=7
+# wptr=5,rptr=7
+# wptr=6,rptr=7
+# Read Monitor @ 2270
+# rrst = 1
+# rinc = 1
+# rempty = 0
+# rdata = 36
+# 
+# 
+# Scoreboard @2270 ------------------------------------
+# TEST FAILED @ 2270
+# PASS count = 6 | FAIL count = 110
+# 
+# 
+############################################################################################################################
+# Write Driver @ 2270
+# wrst = 0 | wdata = 14 | winc = 1
+# ASSERTION PASS: No signals are unknown
+# wptr=0,rptr=0
+# Write Monitor @ 2275
+# wrst = 0
+# winc = 1
+# wdata = 14
+# wfull = 0
+# ASSERTION PASS: wfull is 0 when wrst = 0
+# wptr=0,rptr=0
+# wptr=0,rptr=0
+# ASSERTION PASS: wfull is 0 when wrst = 0
+# wptr=0,rptr=0
+# Read Monitor @ 2290
+# rrst = 0
+# rinc = 1
+# rempty = 1
+# rdata = 14
+# 
+# 
+# Scoreboard @2290 ------------------------------------
+# Write Reset is applied
+# Write Reset TEST PASSED @ 2290
+# Read Reset is applied
+# Read Reset TEST FAILED @ 2290
+# PASS count = 7 | FAIL count = 111
+# 
+# 
+############################################################################################################################
+# Write Driver @ 2290
+# wrst = 1 | wdata = 61 | winc = 1
+# ASSERTION FAIL: rempty != 1 or rdata != 0 when rrst = 0
+# ASSERTION PASS: No signals are unknown
+# wptr=0,rptr=0
+# Write Monitor @ 2295
+# wrst = 1
+# winc = 1
+# wdata = 61
+# wfull = 0
+# wptr=1,rptr=0
+# wptr=1,rptr=0
+# wptr=2,rptr=0
+# Read Monitor @ 2310
+# rrst = 1
+# rinc = 0
+# rempty = 1
+# rdata = 61
+# 
+# 
+# Scoreboard @2310 ------------------------------------
+# TEST PASSED @ 2310
+# PASS count = 8 | FAIL count = 111
+# 
+# 
+# ASSERTION FAIL: rdata is not latched when rinc = 0
+# ASSERTION PASS: No signals are unknown
+# wptr=2,rptr=0
+# Write Monitor @ 2315
+# wrst = 1
+# winc = 1
+# wdata = 61
+# wfull = 0
+# wptr=3,rptr=0
+# wptr=3,rptr=0
+# wptr=4,rptr=0
+# Write Driver @ 2330
+# wrst = 1 | wdata = 190 | winc = 1
+# Read Monitor @ 2330
+# rrst = 1
+# rinc = 0
+# rempty = 1
+# rdata = 61
+# 
+# 
+# Scoreboard @2330 ------------------------------------
+# TEST PASSED @ 2330
+# PASS count = 9 | FAIL count = 111
+# 
+# 
+# ASSERTION PASS: rdata is latched when rinc = 0
+# ASSERTION PASS: No signals are unknown
+# wptr=4,rptr=0
+# Write Monitor @ 2335
+# wrst = 1
+# winc = 1
+# wdata = 190
+# wfull = 0
+# wptr=5,rptr=0
+# wptr=5,rptr=0
+# wptr=6,rptr=0
+# Read Monitor @ 2350
+# rrst = 1
+# rinc = 0
+# rempty = 0
+# rdata = 61
+# 
+# 
+# Scoreboard @2350 ------------------------------------
+# TEST FAILED @ 2350
+# PASS count = 9 | FAIL count = 112
+# 
+# 
+# ASSERTION PASS: rdata is latched when rinc = 0
+# ASSERTION PASS: No signals are unknown
+# wptr=6,rptr=0
+# Write Monitor @ 2355
+# wrst = 1
+# winc = 1
+# wdata = 190
+# wfull = 0
+# wptr=7,rptr=0
+# wptr=7,rptr=0
+# wptr=8,rptr=0
+# Write Driver @ 2370
+# wrst = 1 | wdata = 235 | winc = 1
+# Read Monitor @ 2370
+# rrst = 1
+# rinc = 0
+# rempty = 0
+# rdata = 61
+# 
+# 
+# Scoreboard @2370 ------------------------------------
+# TEST FAILED @ 2370
+# PASS count = 9 | FAIL count = 113
+# 
+# 
+# ASSERTION PASS: rdata is latched when rinc = 0
+# ASSERTION PASS: No signals are unknown
+# wptr=8,rptr=0
+# Write Monitor @ 2375
+# wrst = 1
+# winc = 1
+# wdata = 235
+# wfull = 0
+# wptr=9,rptr=0
+# wptr=9,rptr=0
+# wptr=10,rptr=0
+# Read Monitor @ 2390
+# rrst = 1
+# rinc = 0
+# rempty = 0
+# rdata = 61
+# 
+# 
+# Scoreboard @2390 ------------------------------------
+# TEST FAILED @ 2390
+# PASS count = 9 | FAIL count = 114
+# 
+# 
+# ASSERTION PASS: rdata is latched when rinc = 0
+# ASSERTION PASS: No signals are unknown
+# wptr=10,rptr=0
+# Write Monitor @ 2395
+# wrst = 1
+# winc = 1
+# wdata = 235
+# wfull = 0
+# wptr=11,rptr=0
+# wptr=11,rptr=0
+# wptr=12,rptr=0
+# Write Driver @ 2410
+# wrst = 1 | wdata = 203 | winc = 1
+# Read Monitor @ 2410
+# rrst = 1
+# rinc = 0
+# rempty = 0
+# rdata = 61
+# 
+# 
+# Scoreboard @2410 ------------------------------------
+# TEST FAILED @ 2410
+# PASS count = 9 | FAIL count = 115
+# 
+# 
+# ASSERTION PASS: rdata is latched when rinc = 0
+# ASSERTION PASS: No signals are unknown
+# wptr=12,rptr=0
+# Write Monitor @ 2415
+# wrst = 1
+# winc = 1
+# wdata = 203
+# wfull = 0
+# wptr=13,rptr=0
+# wptr=13,rptr=0
+# wptr=14,rptr=0
+# Read Monitor @ 2430
+# rrst = 1
+# rinc = 0
+# rempty = 0
+# rdata = 61
+# 
+# 
+# Scoreboard @2430 ------------------------------------
+# TEST FAILED @ 2430
+# PASS count = 9 | FAIL count = 116
+# 
+# 
+# ASSERTION PASS: rdata is latched when rinc = 0
+# ASSERTION PASS: No signals are unknown
+# wptr=14,rptr=0
+# Write Monitor @ 2435
+# wrst = 1
+# winc = 1
+# wdata = 203
+# wfull = 0
+# wptr=15,rptr=0
+# wptr=15,rptr=0
+# wptr=0,rptr=0
+# Write Driver @ 2450
+# wrst = 1 | wdata = 28 | winc = 1
+# Read Monitor @ 2450
+# rrst = 1
+# rinc = 0
+# rempty = 0
+# rdata = 61
+# 
+# 
+# Scoreboard @2450 ------------------------------------
+# TEST FAILED @ 2450
+# PASS count = 9 | FAIL count = 117
+# 
+# 
+# ASSERTION PASS: rdata is latched when rinc = 0
+# ASSERTION PASS: No signals are unknown
+# wptr=0,rptr=0
+# Write Monitor @ 2455
+# wrst = 1
+# winc = 1
+# wdata = 28
+# wfull = 1
+# wptr=0,rptr=0
+# wptr=0,rptr=0
+# wptr=0,rptr=0
+# Read Monitor @ 2470
+# rrst = 1
+# rinc = 0
+# rempty = 0
+# rdata = 61
+# 
+# 
+# Scoreboard @2470 ------------------------------------
+# TEST FAILED @ 2470
+# PASS count = 9 | FAIL count = 118
+# 
+# 
+# ASSERTION PASS: rdata is latched when rinc = 0
+# ASSERTION PASS: No signals are unknown
+# wptr=0,rptr=0
+# Write Monitor @ 2475
+# wrst = 1
+# winc = 1
+# wdata = 28
+# wfull = 1
+# wptr=0,rptr=0
+# wptr=0,rptr=0
+############################################################################################################################
+# wptr=0,rptr=0
+############################################################################################################################
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 2490: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO asyn_fifo_subscriber.sv(65) @ 2490: uvm_test_top.env.subcr [asyn_fifo_subscriber] Write Coverage --> 100.00
+# UVM_INFO asyn_fifo_subscriber.sv(66) @ 2490: uvm_test_top.env.subcr [asyn_fifo_subscriber] Read Coverage --> 100.00
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :    6
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [Questa UVM]     2
+# [RNTST]     1
+# [TEST_DONE]     1
+# [asyn_fifo_subscriber]     2
+# ** Note: $finish    : /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
+#    Time: 2490 ns  Iteration: 59  Instance: /top
+# Saving coverage database on exit...
+# End time: 10:35:20 on Oct 07,2025, Elapsed time: 0:00:05
+# Errors: 0, Warnings: 0
